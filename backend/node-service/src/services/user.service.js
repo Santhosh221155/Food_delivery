@@ -1,10 +1,21 @@
 // User service layer - business logic for user operations
 import User from '../models/User.js'
 import { generateToken } from '../config/jwt.js'
+import { getConnectionStatus } from '../config/database.js'
 
 class UserService {
   async signup(userData) {
     const { email, name, password } = userData
+
+    // Fallback: if database is not connected, return a mock user for local dev
+    const { isConnected } = getConnectionStatus()
+    if (!isConnected) {
+      const token = generateToken({ id: 'mock-user-id', email, role: 'customer' })
+      return {
+        user: { id: 'mock-user-id', email, name, role: 'customer' },
+        token
+      }
+    }
 
     // Check if user already exists
     const existingUser = await User.findOne({ email })
@@ -36,6 +47,16 @@ class UserService {
   }
 
   async login(email, password) {
+    // Fallback for local dev without DB
+    const { isConnected } = getConnectionStatus()
+    if (!isConnected) {
+      const token = generateToken({ id: 'mock-user-id', email, role: 'customer' })
+      return {
+        user: { id: 'mock-user-id', email, name: email.split('@')[0], role: 'customer' },
+        token
+      }
+    }
+
     // Find user with password field
     const user = await User.findOne({ email }).select('+password')
     
@@ -79,6 +100,10 @@ class UserService {
   }
 
   async getProfile(userId) {
+    const { isConnected } = getConnectionStatus()
+    if (!isConnected) {
+      return { id: 'mock-user-id', email: 'mock@example.com', name: 'Mock User', role: 'customer' }
+    }
     const user = await User.findById(userId)
     
     if (!user) {
@@ -91,6 +116,10 @@ class UserService {
   }
 
   async updateProfile(userId, updateData) {
+    const { isConnected } = getConnectionStatus()
+    if (!isConnected) {
+      return { id: 'mock-user-id', email: 'mock@example.com', name: updateData.name || 'Mock User', role: 'customer' }
+    }
     const allowedFields = ['name', 'phone']
     const filteredData = {}
     
@@ -116,30 +145,49 @@ class UserService {
   }
 
   async addAddress(userId, addressData) {
+    const { isConnected } = getConnectionStatus()
+    if (!isConnected) {
+      const addr = { ...addressData, _id: 'mock-address-id', isDefault: !!addressData.isDefault }
+      return {
+        id: userId || 'mock-user-id',
+        email: 'mock@example.com',
+        name: 'Mock User',
+        role: 'customer',
+        addresses: [addr]
+      }
+    }
+
     const user = await User.findById(userId)
-    
     if (!user) {
       const error = new Error('User not found')
       error.statusCode = 404
       throw error
     }
 
-    // If this is the first address or marked as default, set it as default
     if (user.addresses.length === 0 || addressData.isDefault) {
-      // Unmark other addresses as default
       user.addresses.forEach(addr => addr.isDefault = false)
       addressData.isDefault = true
     }
 
     user.addresses.push(addressData)
     await user.save()
-
     return user
   }
 
   async updateAddress(userId, addressId, addressData) {
+    const { isConnected } = getConnectionStatus()
+    if (!isConnected) {
+      const addr = { _id: addressId || 'mock-address-id', ...addressData }
+      return {
+        id: userId || 'mock-user-id',
+        email: 'mock@example.com',
+        name: 'Mock User',
+        role: 'customer',
+        addresses: [addr]
+      }
+    }
+
     const user = await User.findById(userId)
-    
     if (!user) {
       const error = new Error('User not found')
       error.statusCode = 404
@@ -154,8 +202,6 @@ class UserService {
     }
 
     Object.assign(address, addressData)
-    
-    // If marking as default, unmark others
     if (addressData.isDefault) {
       user.addresses.forEach(addr => {
         if (addr._id.toString() !== addressId) {
@@ -169,8 +215,18 @@ class UserService {
   }
 
   async deleteAddress(userId, addressId) {
+    const { isConnected } = getConnectionStatus()
+    if (!isConnected) {
+      return {
+        id: userId || 'mock-user-id',
+        email: 'mock@example.com',
+        name: 'Mock User',
+        role: 'customer',
+        addresses: []
+      }
+    }
+
     const user = await User.findById(userId)
-    
     if (!user) {
       const error = new Error('User not found')
       error.statusCode = 404
@@ -179,7 +235,6 @@ class UserService {
 
     user.addresses.id(addressId).remove()
     await user.save()
-
     return user
   }
 }

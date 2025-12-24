@@ -1,6 +1,15 @@
-# Start Node Service (Terminal 2)
-Write-Host "Starting Node Service on port 3000..." -ForegroundColor Green
-Push-Location "D:\System Design\Food_delivery_app\backend\node-service"
-$env:PORT = "3000"
-$env:DOWNSTREAM_BASE_URL = "http://127.0.0.1:5000"
+# Start Node.js Service (Local Development)
+Write-Host "🟢 Starting Node.js API Gateway..." -ForegroundColor Green
+Write-Host "Port: 3000" -ForegroundColor Yellow
+Write-Host "Health: http://localhost:3000/healthz`n" -ForegroundColor Cyan
+
+cd $PSScriptRoot\node-service
+
+# Check if dependencies are installed
+if (-not (Test-Path "node_modules")) {
+    Write-Host "⚠️  Dependencies not found. Installing...`n" -ForegroundColor Yellow
+    npm install
+}
+
+# Start Node.js
 npm start

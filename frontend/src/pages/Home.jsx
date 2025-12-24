@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import SearchBar from '../components/SearchBar.jsx'
 import Filters from '../components/Filters.jsx'
 import RestaurantCard from '../components/RestaurantCard.jsx'
-import { fetchRestaurants } from '../services/api.js'
+import { restaurantAPI } from '../services/api.js'
 import { Zap } from 'lucide-react'
 
 export default function Home() {
@@ -15,18 +15,27 @@ export default function Home() {
   useEffect(()=>{
     let mounted = true
     setLoading(true)
-    fetchRestaurants().then(data=>{ if(mounted){ setRestaurants(data); setLoading(false) } })
+    restaurantAPI.getRestaurants().then(data=>{ if(mounted){ setRestaurants(data); setLoading(false) } })
     return ()=>{ mounted = false }
   },[])
 
   const filtered = useMemo(()=>{
-    let list = restaurants
+    const base = Array.isArray(restaurants) ? restaurants : []
+    let list = base
     if (query) {
       const q = query.toLowerCase()
-      list = list.filter(r=> r.name.toLowerCase().includes(q) || r.cuisines.join(',').toLowerCase().includes(q))
+      list = list.filter(r=> {
+        const nameMatch = (r.name || '').toLowerCase().includes(q)
+        const cuisinesArr = Array.isArray(r.cuisines) ? r.cuisines : (Array.isArray(r.cuisine) ? r.cuisine : [])
+        const cuisinesStr = cuisinesArr.join(',').toLowerCase()
+        return nameMatch || cuisinesStr.includes(q)
+      })
     }
     if (cuisine !== 'All') {
-      list = list.filter(r=> r.cuisines.includes(cuisine))
+      list = list.filter(r=> {
+        const cuisinesArr = Array.isArray(r.cuisines) ? r.cuisines : (Array.isArray(r.cuisine) ? r.cuisine : [])
+        return cuisinesArr.includes(cuisine)
+      })
     }
     switch (sort) {
       case 'rating': list = [...list].sort((a,b)=> b.rating - a.rating); break

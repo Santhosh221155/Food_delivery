@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { fetchRestaurant } from '../services/api.js'
+import { restaurantAPI } from '../services/api.js'
 import MenuItemCard from '../components/MenuItemCard.jsx'
 import { Star, Clock, MapPin, Image as ImageIcon } from 'lucide-react'
 
@@ -12,7 +12,21 @@ export default function Restaurant() {
   useEffect(()=>{
     let mounted = true
     setLoading(true)
-    fetchRestaurant(id).then(r=> { if(mounted){ setRestaurant(r); setLoading(false) } })
+    Promise.all([
+      restaurantAPI.getRestaurant(id),
+      restaurantAPI.getMenu(id)
+    ])
+    .then(([rest, menu]) => {
+      if (!mounted) return
+      const menuItems = Array.isArray(menu) ? menu : (menu?.items || [])
+      setRestaurant({ ...(rest || {}), menu: menuItems })
+      setLoading(false)
+    })
+    .catch(() => {
+      if (!mounted) return
+      setRestaurant(null)
+      setLoading(false)
+    })
     return ()=>{ mounted=false }
   }, [id])
 
@@ -41,7 +55,14 @@ export default function Restaurant() {
         </div>
         <div className="p-6">
           <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">{restaurant.name}</h1>
-          <p className="text-neutral-600 dark:text-neutral-400 mb-4">{restaurant.cuisines.join(' • ')}</p>
+          {(() => {
+            const cuisinesArr = Array.isArray(restaurant.cuisines)
+              ? restaurant.cuisines
+              : (Array.isArray(restaurant.cuisine) ? restaurant.cuisine : [])
+            return (
+              <p className="text-neutral-600 dark:text-neutral-400 mb-4">{cuisinesArr.join(' • ')}</p>
+            )
+          })()}
           <div className="flex flex-wrap gap-4 text-sm">
             <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800 px-3 py-2 rounded-lg">
               <Star className="w-4 h-4 text-amber-500 fill-amber-500"/> {restaurant.rating}

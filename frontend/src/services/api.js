@@ -33,6 +33,9 @@ api.interceptors.response.use(
   }
 )
 
+// Helper to unwrap standard `{ success, data }` envelopes
+const unwrap = (payload) => (payload && typeof payload === 'object' && 'data' in payload) ? payload.data : payload
+
 // Auth endpoints
 export const authAPI = {
   signup: async (email, name, password) => {
@@ -57,15 +60,16 @@ export const authAPI = {
 export const restaurantAPI = {
   getRestaurants: async (filters = {}) => {
     const { data } = await api.get('/restaurants', { params: filters })
-    return data
+    const out = unwrap(data)
+    return Array.isArray(out) ? out : (out?.restaurants || [])
   },
   getRestaurant: async (restaurantId) => {
     const { data } = await api.get(`/restaurants/${restaurantId}`)
-    return data
+    return unwrap(data)
   },
   getMenu: async (restaurantId) => {
     const { data } = await api.get(`/restaurants/${restaurantId}/menu`)
-    return data
+    return unwrap(data)
   }
 }
 
