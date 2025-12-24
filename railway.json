@@ -1,0 +1,32 @@
+{
+  "services": [
+    {
+      "name": "Node.js API Gateway",
+      "repoPath": "backend/node-service",
+      "buildCommand": "npm install",
+      "startCommand": "npm start",
+      "environmentVariables": {
+        "PORT": "3000",
+        "NODE_ENV": "production",
+        "USE_CLUSTER": "false",
+        "NUM_WORKERS": "2"
+      },
+      "port": 3000
+    },
+    {
+      "name": "Flask Menu Service",
+      "repoPath": "backend/flask-service",
+      "buildCommand": "pip install -r requirements.txt",
+      "startCommand": "python main.py",
+      "environmentVariables": {
+        "PORT": "5000"
+      },
+      "port": 5000
+    }
+  ],
+  "database": {
+    "type": "MongoDB Atlas",
+    "connectionString": "MONGODB_URI"
+  },
+  "documentation": "See DEPLOYMENT_GUIDE.md for step-by-step instructions"
+}
