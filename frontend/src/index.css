@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    @apply bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer;
+  }
+  .badge {
+    @apply inline-block px-2 py-1 text-xs font-semibold rounded-full;
+  }
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors;
+  }
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors;
+  }
+}

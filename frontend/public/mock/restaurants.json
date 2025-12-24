@@ -1,0 +1,164 @@
+[
+  {
+    "id": "res-1",
+    "name": "Spice Garden",
+    "cuisines": ["Indian", "North Indian"],
+    "rating": 4.3,
+    "eta": 30,
+    "fee": 39,
+    "image": "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m1","name":"Butter Chicken","price":299,"desc":"Creamy tomato gravy with tender chicken","image":"https://images.unsplash.com/photo-1604908554027-0428a7b2f686?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m2","name":"Paneer Tikka","price":199,"desc":"Grilled cottage cheese with spices","image":"https://images.unsplash.com/photo-1625944523862-7246bbb6d74c?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-2",
+    "name": "Dragon Bowl",
+    "cuisines": ["Chinese", "Asian"],
+    "rating": 4.5,
+    "eta": 25,
+    "fee": 29,
+    "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m3","name":"Veg Hakka Noodles","price":179,"desc":"Wok tossed noodles with veggies","image":"https://images.unsplash.com/photo-1604908177812-c31ec3c4f8b1?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m4","name":"Chicken Momos","price":149,"desc":"Steamed dumplings with spicy chutney","image":"https://images.unsplash.com/photo-1596560548465-3d4cdfbdc2b3?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-3",
+    "name": "Olive & Basil",
+    "cuisines": ["Italian", "Pizza"],
+    "rating": 4.2,
+    "eta": 35,
+    "fee": 49,
+    "image": "https://images.unsplash.com/photo-1541745537413-b804f0f67c36?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m5","name":"Margherita Pizza","price":249,"desc":"Classic pizza with fresh basil","image":"https://images.unsplash.com/photo-1548365328-9f547fb0953b?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m6","name":"Penne Alfredo","price":219,"desc":"Creamy white sauce pasta","image":"https://images.unsplash.com/photo-1521389508051-d7ffb5dc8bbf?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-4",
+    "name": "Saravana Bhavan",
+    "cuisines": ["Tamil", "South Indian"],
+    "rating": 4.6,
+    "eta": 28,
+    "fee": 34,
+    "image": "https://images.unsplash.com/photo-1585238341710-4dd0bd180d8d?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m7","name":"Masala Dosa","price":149,"desc":"Crispy fermented rice and lentil crepe filled with potatoes","image":"https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m8","name":"Idly Sambar","price":99,"desc":"Steamed rice cakes with sambar and chutney","image":"https://images.unsplash.com/photo-1599599810694-a5f2c9e2e0a8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m9","name":"Uttapam","price":129,"desc":"Savory pancake topped with vegetables and spices","image":"https://images.unsplash.com/photo-1589301760014-d929314c3fe2?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m10","name":"Rasam Vada","price":89,"desc":"Crispy lentil donuts with tangy rasam soup","image":"https://images.unsplash.com/photo-1606850915943-fe536efb3163?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-5",
+    "name": "Tamil Nadu Kitchen",
+    "cuisines": ["Tamil", "South Indian", "Vegetarian"],
+    "rating": 4.4,
+    "eta": 32,
+    "fee": 39,
+    "image": "https://images.unsplash.com/photo-1585238341710-4dd0bd180d8d?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m11","name":"Chettinad Chicken","price":279,"desc":"Spicy chicken curry with regional spices","image":"https://images.unsplash.com/photo-1599599810694-a5f2c9e2e0a8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m12","name":"Appam with Stew","price":159,"desc":"Soft lacy pancakes with coconut milk curry","image":"https://images.unsplash.com/photo-1645112411341-6c4ee32510d8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m13","name":"Kothu Roti","price":169,"desc":"Shredded parotta with vegetables and spices","image":"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m14","name":"Milagu Podi Idly","price":109,"desc":"Idly with black pepper powder and ghee","image":"https://images.unsplash.com/photo-1589301760014-d929314c3fe2?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m15","name":"Pongal","price":139,"desc":"Sweet rice dish with jaggery and cashews","image":"https://images.unsplash.com/photo-1645112411341-6c4ee32510d8?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-6",
+    "name": "Chennai Street Food",
+    "cuisines": ["Tamil", "Street Food"],
+    "rating": 4.7,
+    "eta": 20,
+    "fee": 24,
+    "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m16","name":"Pani Puri","price":79,"desc":"Crispy shells with flavored water and filling","image":"https://images.unsplash.com/photo-1599599810694-a5f2c9e2e0a8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m17","name":"Chaat Masala Bhel","price":89,"desc":"Puffed rice with vegetables and tangy sauce","image":"https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m18","name":"Murukku","price":69,"desc":"Twisted savory snack with spices","image":"https://images.unsplash.com/photo-1599599810694-a5f2c9e2e0a8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m19","name":"Bajji","price":59,"desc":"Deep-fried vegetable fritters","image":"https://images.unsplash.com/photo-1585238341710-4dd0bd180d8d?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-7",
+    "name": "Banana Leaf",
+    "cuisines": ["Tamil", "South Indian", "Thali"],
+    "rating": 4.5,
+    "eta": 35,
+    "fee": 44,
+    "image": "https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m20","name":"Sambar Rice","price":129,"desc":"Rice with sambar and seasonal vegetables","image":"https://images.unsplash.com/photo-1645112411341-6c4ee32510d8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m21","name":"Rasam Rice","price":119,"desc":"Rice with tangy tamarind and pepper rasam","image":"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m22","name":"Pickle with Rice","price":99,"desc":"Rice with homemade pickle and ghee","image":"https://images.unsplash.com/photo-1589301760014-d929314c3fe2?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m23","name":"Curd Rice","price":109,"desc":"Rice mixed with curd and tempering","image":"https://images.unsplash.com/photo-1599599810694-a5f2c9e2e0a8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m24","name":"Tamarind Rice","price":119,"desc":"Rice flavored with tamarind paste","image":"https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-8",
+    "name": "Tiffin Corner",
+    "cuisines": ["Tamil", "South Indian", "Breakfast"],
+    "rating": 4.3,
+    "eta": 25,
+    "fee": 29,
+    "image": "https://images.unsplash.com/photo-1585238341710-4dd0bd180d8d?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m25","name":"Ghee Dosa","price":149,"desc":"Crispy dosa with generous ghee","image":"https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m26","name":"Rava Idly","price":99,"desc":"Semolina-based steamed cake","image":"https://images.unsplash.com/photo-1589301760014-d929314c3fe2?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m27","name":"Medu Vada","price":89,"desc":"Soft and fluffy lentil donuts","image":"https://images.unsplash.com/photo-1606850915943-fe536efb3163?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m28","name":"Poha","price":79,"desc":"Flattened rice with vegetables","image":"https://images.unsplash.com/photo-1645112411341-6c4ee32510d8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m29","name":"Upma","price":89,"desc":"Savory semolina porridge with vegetables","image":"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-9",
+    "name": "Curry Paradise",
+    "cuisines": ["Tamil", "South Indian", "Non-Veg"],
+    "rating": 4.4,
+    "eta": 30,
+    "fee": 39,
+    "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m30","name":"Chettinad Mutton","price":349,"desc":"Mutton with authentic Chettinad spices","image":"https://images.unsplash.com/photo-1645112411341-6c4ee32510d8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m31","name":"Fish Curry","price":299,"desc":"Fresh fish in coconut gravy","image":"https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m32","name":"Prawn Fry","price":329,"desc":"Crispy fried prawns with spices","image":"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m33","name":"Chicken Biryani","price":279,"desc":"Fragrant rice with tender chicken","image":"https://images.unsplash.com/photo-1599599810694-a5f2c9e2e0a8?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-10",
+    "name": "Green Leaf",
+    "cuisines": ["Tamil", "Vegetarian", "Vegan"],
+    "rating": 4.2,
+    "eta": 28,
+    "fee": 34,
+    "image": "https://images.unsplash.com/photo-1585238341710-4dd0bd180d8d?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m34","name":"Vegetable Kurma","price":149,"desc":"Mixed vegetables in coconut curry","image":"https://images.unsplash.com/photo-1589301760014-d929314c3fe2?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m35","name":"Brinjal Fry","price":129,"desc":"Crispy fried eggplant pieces","image":"https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m36","name":"Mushroom Curry","price":159,"desc":"Mushrooms in aromatic spiced gravy","image":"https://images.unsplash.com/photo-1645112411341-6c4ee32510d8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m37","name":"Tomato Rice","price":99,"desc":"Rice cooked with fresh tomatoes","image":"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m38","name":"Lemon Rice","price":99,"desc":"Tangy rice with fresh lemon juice","image":"https://images.unsplash.com/photo-1599599810694-a5f2c9e2e0a8?q=80&w=800&auto=format&fit=crop"}
+    ]
+  },
+  {
+    "id": "res-11",
+    "name": "Spice Merchant",
+    "cuisines": ["South Indian", "Hyderabadi"],
+    "rating": 4.6,
+    "eta": 32,
+    "fee": 39,
+    "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=1200&auto=format&fit=crop",
+    "menu": [
+      {"id":"m39","name":"Hyderabadi Biryani","price":329,"desc":"Dum cooked basmati rice with meat","image":"https://images.unsplash.com/photo-1645112411341-6c4ee32510d8?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m40","name":"Haleem","price":199,"desc":"Slow-cooked meat and lentil preparation","image":"https://images.unsplash.com/photo-1668050473456-f1ec4c96e2b0?q=80&w=800&auto=format&fit=crop"},
+      {"id":"m41","name":"Pesarattu","price":119,"desc":"Savory pancake made with green moong dal","image":"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=800&auto=format&fit=crop"}
+    ]
+  }
+]
